@@ -1,0 +1,18 @@
+[project]
+name = "pdftools"
+version = "0.1.0"
+description = "Python library to facilitate the manipulation of PDFs files."
+authors = [
+    {name = "Dylan Lebreton",email = "dylan.lebreton1996@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "treeproject (>=0.1.0,<0.2.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
