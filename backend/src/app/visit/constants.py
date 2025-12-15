@@ -1,0 +1,1 @@
+VISIT_ID_HEADER = "X-Visit-Id"

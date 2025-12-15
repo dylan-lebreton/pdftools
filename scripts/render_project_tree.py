@@ -14,6 +14,7 @@ res = build_tree_and_contents(
         ".gitignore",
         ".pytest_cache",
         "*tests",
+        "render_project_tree.py",
     ],
     content_exclude=[
         "__pycache__",
@@ -27,8 +28,9 @@ res = build_tree_and_contents(
         ".gitignore",
         ".pytest_cache",
         "*tests",
+        "render_project_tree.py",
     ],
-    content_include=[".py", ".toml"],
+    content_include=[".py", ".toml", ".html", ".css", ".js"],
     content_ignore_file_type_error=False,
     encoding="utf-8"
 )

@@ -3,16 +3,30 @@ name = "pdftools"
 version = "0.1.0"
 description = "Python library to facilitate the manipulation of PDFs files."
 authors = [
-    {name = "Dylan Lebreton",email = "dylan.lebreton1996@gmail.com"}
+    { name = "Dylan Lebreton", email = "dylan.lebreton1996@gmail.com" }
 ]
-license = {text = "Apache-2.0"}
+license = { text = "Apache-2.0" }
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
+
 dependencies = [
-    "treeproject (>=0.1.0,<0.2.0)"
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+    "python-multipart>=0.0.9,<1.0",
+    "pymupdf>=1.26.0,<2.0.0",
+    "pypdf>=6.4.0,<7.0.0",
+    "pillow>=10.0.0,<12.0.0",
+    "pydantic-settings (>=2.12.0,<3.0.0)"
 ]
 
+[tool.poetry]
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "treeproject (>=0.1.0,<0.2.0)"
+]

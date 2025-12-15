@@ -1,0 +1,71 @@
+/* canvas plein écran */
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*
+ Grille :
+ colonnes = gauche | resizer | centre | resizer | droite
+ lignes   = header | contenu
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 15% 1px 70% 1px 15%;
+  grid-template-rows: 10% 90%;
+  height: 100%;
+}
+
+/* placements */
+.left {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.center-header {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.center-content {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.right {
+  grid-column: 5;
+  grid-row: 1 / span 2;
+}
+
+/* resizers = séparateurs verticaux */
+.resizer {
+  background: #000;
+  cursor: col-resize;
+}
+
+.resizer[data-resizer="left"] {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.resizer[data-resizer="right"] {
+  grid-column: 4;
+  grid-row: 1 / span 2;
+}
+
+/* zones scrollables */
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+/* header central : PAS de séparation horizontale */
+.center-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
