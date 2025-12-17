@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  code:
+    image: codercom/code-server:latest
+    container_name: pdftools-code
+    environment:
+      - PASSWORD=dev
+    volumes:
+      - ./frontend:/home/coder/project/frontend
+      - code_data:/home/coder
+    ports:
+      - "8081:8080"
+
+  frontend:
+    image: node:20-alpine
+    container_name: pdftools-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: >
+      sh -c "npm -g i live-server &&
+             live-server /app --host 0.0.0.0 --port 8080 --no-browser"
+    ports:
+      - "5173:8080"
+
+
+volumes:
+  code_data:

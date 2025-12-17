@@ -1,28 +1,20 @@
-from __future__ import annotations
-
-from pathlib import Path
-
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-
-from .config import settings
-
-
-# from .health.router import router as health_router
+from fastapi.middleware.cors import CORSMiddleware
 
 
 def create_app() -> FastAPI:
     app = FastAPI(title="pdftools")
 
-    # ---------- API ----------
-    # app.include_router(health_router, prefix="/api", tags=["health"])
-
-    # ---------- Frontend statique ----------
-    app.mount(
-        "/",
-        StaticFiles(directory=Path(__file__).parents[3] / settings.FRONTEND_DIR, html=True),
-        name="frontend",
+    # CORS pour le frontend Docker
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:5173"],
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
+
+    # Routers API ici
+    # app.include_router(...)
 
     return app
 
