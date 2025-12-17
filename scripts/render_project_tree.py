@@ -30,7 +30,13 @@ res = build_tree_and_contents(
         "*tests",
         "render_project_tree.py",
     ],
-    content_include=[".py", ".toml", ".html", ".css", ".js"],
+    content_include=[
+        # ".py",
+        # ".toml",
+        ".html",
+        ".css",
+        ".js"
+    ],
     content_ignore_file_type_error=False,
     encoding="utf-8"
 )
